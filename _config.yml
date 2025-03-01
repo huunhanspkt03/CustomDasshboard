@@ -1,0 +1,7 @@
+title: "Custom Dashboard"
+description: "Trang web sử dụng Jekyll trên GitHub Pages"
+baseurl: ""  # Để trống nếu repo là <username>.github.io
+url: "https://huunhanspkt03.github.io"
+theme: minima  # Hoặc một theme khác nếu muốn
+plugins:
+  - jekyll-feed
