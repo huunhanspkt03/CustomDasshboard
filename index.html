@@ -1,221 +1,103 @@
 <!DOCTYPE html>
-<html lang="en"> 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Live Data Chart</title>
-        <style>
-            .highcharts-figure,
-            .highcharts-data-table table {
-                min-width: 320px;
-                max-width: 800px;
-                margin: 1em auto;
-            }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.unpkg.com/@eohjsc/era-widget@1.1.3/src/index.js"></script>
+    <title>Smart Home Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            
+            <!-- Đèn phòng ngủ -->
+            <div class="widget bedLight-widget">
+                <div class="title">Bed Light</div>
+                <div class="content-wrapper">
+                    <div class="light-icon">
+                        <img src="https://github.com/MinhQuan7/HomeAssistant_Dashboard/blob/main/assets/imgs/tableLamp.png?raw=true" alt="imgBedLights">
+                    </div>
+                    <div class="status">OFF</div>
+                </div>
+            </div>
 
-            #container {
-                height: 400px;
-            }
+            <!-- Đèn phòng bếp -->
+            <div class="widget kitchenLight-widget">
+                <div class="title">Kitchen Lights</div>
+                <div class="content-wrapper">
+                    <div class="light-icon">
+                        <img src="https://github.com/MinhQuan7/HomeAssistant_Dashboard/blob/main/assets/imgs/3dKitchenLight.png?raw=true" alt="icon">
+                    </div>
+                    <div class="status">OFF</div>
+                </div>
+            </div>
 
-            .highcharts-data-table table {
-                font-family: Verdana, sans-serif;
-                border-collapse: collapse;
-                border: 1px solid #ebebeb;
-                margin: 10px auto;
-                text-align: center;
-                width: 100%;
-                max-width: 500px;
-            }
+            <!-- Đèn phòng khách -->
+            <div class="widget livingRoomLight-widget">
+                <div class="title">Living Room Lights</div>
+                <div class="content-wrapper">
+                    <div class="light-icon">
+                        <img src="https://github.com/MinhQuan7/HomeAssistant_Dashboard/blob/main/assets/imgs/3dKitchenLight.png?raw=true" alt="icon">
+                    </div>
+                    <div class="status">OFF</div>
+                </div>
+            </div>
 
-            .highcharts-data-table caption {
-                padding: 1em 0;
-                font-size: 1.2em;
-                color: #555;
-            }
+            <!-- Widget Độ Ẩm -->
+            <div class="widget humidifier-widget">
+                    <div class="title">Humidity</div>
+                    <div class="gauge humidifier neon" style="--value: 68">
+                      <div class="dial"></div>
+                      <div class="fill"></div>
+                      <div class="value">68%</div>
+                    </div>
+                    <div class="controls">
+                        <button data-type="humidifier" class="active">
+                        <i class="fas fa-play"></i>
+                      </button>
+                      <button data-type="humidifier">
+                        <i class="fas fa-power-off"></i>
+                      </button>
+                    </div>
+                  </div>
+        
+                  <div class="widget temp-widget">
+                    <div class="title">Temperature</div>
+                    <div class="gauge temp neon" style="--value: 72">
+                      <div class="dial"></div>
+                      <div class="fill"></div>
+                      <div class="value">72%</div>
+                    </div>
+                    <div class="controls">
+                        <button data-type="temp" class="active">
+                        <i class="fas fa-play"></i>
+                      </button>
+                      <button data-type="temp">
+                        <i class="fas fa-power-off"></i>
+                      </button>
+                    </div>
+                </div>
+            <!-- Widget Thời Tiết -->
+            <div class="widget weather-widget">
+                <div class="weather-header">
+                    <div class="weather-main">
+                        <h1 class="weather-title">Weather</h1>
+                        <div class="weather-subtitle" id="weather-day">--</div>
+                        <div class="weather-subtitle" id="weather-temp">--°C</div>
+                        <div class="iconWeather">
+                            <img id="weather-icon" src="assets/imgs/weather.png" alt="Weather Icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            .highcharts-data-table th {
-                font-weight: 600;
-                padding: 0.5em;
-            }
+        </div> <!-- Kết thúc main-content -->
+    </div> <!-- Kết thúc container -->
 
-            .highcharts-data-table td,
-            .highcharts-data-table th,
-            .highcharts-data-table caption {
-                padding: 0.5em;
-            }
-
-            .highcharts-data-table thead tr,
-            .highcharts-data-table tr:nth-child(even) {
-                background: #f8f8f8;
-            }
-
-            .highcharts-data-table tr:hover {
-                background: #f1f7ff;
-            }
-
-            .highcharts-description {
-                margin: 0.3rem 10px;
-            }
- 
-        </style>
-    </head>
-    <body>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/exporting.js"></script>
-        <script src="https://code.highcharts.com/modules/export-data.js"></script>
-        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-        <script src="https://www.unpkg.com/@eohjsc/era-widget@1.0.14/src/index.js"></script>
-        <figure class="highcharts-figure">
-            <div id="container"></div>
-            <p class="highcharts-description">
-                Chart showing data updating every second, with old data being removed.
-            </p>
-        </figure>
-            <input type="checkbox" id="Temperture"></input>
-            <script>
-                        const eraWidget = new EraWidget();
-            let config = null;
-            let TempertureValue = 0; // Khởi tạo giá trị giá trị mặc định
-            const dataBuffer = [];
-
-            eraWidget.onConfiguration((configuration) => {
-                config = configuration.realtime_configs[0];
-            });
-
-            eraWidget.onValues((values) => {
-                const input = document.getElementById('Temperture');
-                TempertureValue = values[config.id].value; // Giả sử values[config.id].value là giá trị thực tế
-                input.checked = values[config.id].value > 0; // Đặt trạng thái của checkbox dựa trên giá trị
-            });
-
-            eraWidget.ready();
-                // On chart load, start an interval that adds points to the chart and animate
-                // the pulsating marker.
-                const onChartLoad = function () {
-                    const chart = this,
-                        series = chart.series[0];
-
-                    setInterval(function () {
-                        const x = (new Date()).getTime(), // current time
-                            y = TempertureValue;
-
-                        series.addPoint([x, y], true, true);
-                    }, 1000);
-                };
-
-                // Create the initial data
-                const data = (function () {
-                    const data = [];
-                    const time = new Date().getTime();
-
-                    for (let i = -19; i <= 0; i += 1) {
-                        data.push({
-                            x: time + i * 1000,
-                            y: TempertureValue
-                        });
-                    }
-                    return data;
-                }());
-
-                // Plugin to add a pulsating marker on add point
-                Highcharts.addEvent(Highcharts.Series, 'addPoint', e => {
-                    const point = e.point,
-                        series = e.target;
-
-                    if (!series.pulse) {
-                        series.pulse = series.chart.renderer.circle()
-                            .add(series.markerGroup);
-                    }
-
-                    setTimeout(() => {
-                        series.pulse
-                            .attr({
-                                x: series.xAxis.toPixels(point.x, true),
-                                y: series.yAxis.toPixels(point.y, true),
-                                r: series.options.marker.radius,
-                                opacity: 1,
-                                fill: series.color
-                            })
-                            .animate({
-                                r: 20,
-                                opacity: 0
-                            }, {
-                                duration: 1000
-                            });
-                    }, 1);
-                });
-
-
-                Highcharts.chart('container', {
-                    chart: {
-                        type: 'spline',
-                        events: {
-                            load: onChartLoad
-                        }
-                    },
-
-                    time: {
-                        useUTC: false
-                    },
-
-                    title: {
-                        text: 'Live random data'
-                    },
-
-                    accessibility: {
-                        announceNewData: {
-                            enabled: true,
-                            minAnnounceInterval: 15000,
-                            announcementFormatter: function (allSeries, newSeries, newPoint) {
-                                if (newPoint) {
-                                    return 'New point added. Value: ' + newPoint.y;
-                                }
-                                return false;
-                            }
-                        }
-                    },
-
-                    xAxis: {
-                        type: 'datetime',
-                        tickPixelInterval: 150,
-                        maxPadding: 0.1
-                    },
-
-                    yAxis: {
-                        title: {
-                            text: 'Value'
-                        },
-                        plotLines: [
-                            {
-                                value: 0,
-                                width: 1,
-                                color: '#808080'
-                            }
-                        ]
-                    },
-
-                    tooltip: {
-                        headerFormat: '<b>{series.name}</b><br/>',
-                        pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}'
-                    },
-
-                    legend: {
-                        enabled: false
-                    },
-
-                    exporting: {
-                        enabled: false
-                    },
-
-                    series: [
-                        {
-                            name: 'Random data',
-                            lineWidth: 2,
-                            color: Highcharts.getOptions().colors[2],
-                            data
-                        }
-                    ]
-                });
-        </script>
-    </body>
-
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
 </html>
