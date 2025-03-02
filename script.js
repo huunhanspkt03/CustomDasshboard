@@ -164,12 +164,12 @@ window.addEventListener("DOMContentLoaded", fetchWeather);
     onConfiguration: (configuration) => {
       configTemp = configuration.realtime_configs[0];
       configHumi = configuration.realtime_configs[1];
-      onBedLight = configuration.actions[2];
-      offBedLight = configuration.actions[3];
-      onLivingLight = configuration.actions[4];
-      offLivingLight = configuration.actions[5];
-      onKitchenLight = configuration.actions[6];
-      offKitchenLight = configuration.actions[7];
+      onBedLight = configuration.actions[0];
+      offBedLight = configuration.actions[1];
+      onLivingLight = configuration.actions[2];
+      offLivingLight = configuration.actions[3];
+      onKitchenLight = configuration.actions[4];
+      offKitchenLight = configuration.actions[5];
     },
     onValues: (values) => {
         if (configTemp && values[configTemp.id]) {
