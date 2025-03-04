@@ -2,13 +2,16 @@
 // Hàm thiết lập điều khiển đèn cho từng phòng
 function setupLightControl(room) {
     const widget = document.querySelector(`.${room}-widget`);
-    if (!widget) return; 
+    if (!widget){ 
+        console.error(`Không tìm thấy widget cho phòng: ${room}`);
+        return;} 
     const icon = widget.querySelector(".light-icon");
     const status = widget.querySelector(".status");
     let isOn = false;
 
     function toggleLight() {
         isOn = !isOn;
+        console.log(`🔆 Đèn ${room}: ${isOn ? "Bật" : "Tắt"}`);
         if (isOn) {
             icon.classList.add("active");
             status.textContent = "ON";
@@ -35,17 +38,15 @@ function handlePowerOff(type) {
       const gaugeTemp = document.querySelector(".temp-widget .gauge.temp.neon");
       gaugeTemp.style.setProperty("--value", 0);
       gaugeTemp.querySelector(".value").textContent = "OFF";
-      updateChart(0, NaN);
+      //updateChart(0, NaN);
     }
   
     if (type === "humidifier" || type === "both") {
       isHumidActive = false;
-      const gaugeHumid = document.querySelector(
-        ".humidifier-widget .gauge.humidifier.neon"
-      );
+      const gaugeHumid = document.querySelector(".humidifier-widget .gauge.humidifier.neon");
       gaugeHumid.style.setProperty("--value", 0);
       gaugeHumid.querySelector(".value").textContent = "OFF";
-      updateChart(NaN, 0);
+      //updateChart(NaN, 0);
     }
   }
   
@@ -65,7 +66,7 @@ function handlePowerOff(type) {
       isTempActive = true;
       if (lastTempValue !== null) {
         updateTempGauge(lastTempValue);
-        updateChart(lastTempValue, NaN);
+        //updateChart(lastTempValue, NaN);
       }
     }
   
@@ -73,7 +74,7 @@ function handlePowerOff(type) {
       isHumidActive = true;
       if (lastHumidValue !== null) {
         updateGauge(lastHumidValue);
-        updateChart(NaN, lastHumidValue);
+        //updateChart(NaN, lastHumidValue);
       }
     }
   }
@@ -118,7 +119,7 @@ function handlePowerOff(type) {
     );
     gauge.style.setProperty("--value", newVal);
     gauge.querySelector(".value").textContent = newVal + "%";
-  }
+  } 
 
 // Hàm cập nhật thời tiết
 async function fetchWeather() {
@@ -146,7 +147,7 @@ window.addEventListener("DOMContentLoaded", fetchWeather);
   //==============Add E-Ra Services============
   const eraWidget = new EraWidget();
   const temp = document.getElementById("temp-widget");
-  const humi = document.getElementById("humidifier-widget");
+  const humidifier = document.getElementById("humidifier-widget");
   let isTempActive = true;
   let isHumidActive = true;
   let lastTempValue = null;
@@ -170,27 +171,27 @@ window.addEventListener("DOMContentLoaded", fetchWeather);
       offLivingLight = configuration.actions[3];
       onKitchenLight = configuration.actions[4];
       offKitchenLight = configuration.actions[5];
-    },
-    onValues: (values) => {
-        if (configTemp && values[configTemp.id]) {
-            const tempValue = values[configTemp.id].value;
-            lastTempValue = tempValue;
-            if (isTempActive) {
-                updateGauge(tempValue);
-                updateChart(tempValue, NaN);
+        },
+        onValues: (values) => {
+            if (configTemp && values[configTemp.id]) {
+                const tempValue = values[configTemp.id].value;
+                lastTempValue = tempValue;
+                if (isTempActive) {
+                    updateTempGauge(tempValue); // Cập nhật nhiệt độ
+                    //updateChart(tempValue, NaN);
+                }
             }
-        }
     
-        if (configHumi && values[configHumi.id]) {
-            const humidValue = values[configHumi.id].value; // Lấy giá trị độ ẩm từ API
-            lastHumidValue = humidValue; // Khởi tạo biến này
-            if (isHumiActive) {
-                updateGauge(humidValue); // Đảm bảo bạn gửi đúng biến
-                updateChart(NaN, humidValue);
+            if (configHumi && values[configHumi.id]) {
+                const humidValue = values[configHumi.id].value; // Lấy giá trị độ ẩm từ API
+                lastHumidValue = humidValue; // Khởi tạo biến này
+                if (isHumidActive) {
+                    updateGauge(humidValue); // Cập nhật độ ẩm
+                    //updateChart(NaN, humidValue);
+                }
             }
-        }
-    },
-  });
+        },
+    });
   //===========Full Screen Feature==========
   // Add fullscreen button HTML to your document first
   const fullscreenButton = document.createElement("button");
