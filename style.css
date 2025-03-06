@@ -19,7 +19,7 @@ body {
     background-repeat: no-repeat;
 }
 
-.kitchenLight-widget img {
+.KitchenLight-widget img {
     width: 200px;  /* Giảm kích thước */
     height: auto;
     object-fit: contain;
@@ -28,7 +28,7 @@ body {
     top: 10px; /* Điều chỉnh khoảng cách từ trên xuống */
     right: 10px; /* Đặt ảnh sát góc phải */
 }
-.livingRoomLight-widget img {
+.LivingRoomLight-widget img {
     width: 200px;  /* Giảm kích thước */
     height: auto;
     object-fit: contain;
@@ -235,9 +235,9 @@ body {
 .widget.temp-widget {
   max-height: 250px;
 }
-.widget.bedLight-widget,
-.widget.apple-style,
-.widget.livingRoom-widget {
+.widget.BedLight-widget,
+/* .widget.apple-style, */
+.widget.LivingRoom-widget {
   min-height: 250px;
 }
 .gauge.temp.neon {
@@ -321,51 +321,6 @@ body {
   font-weight: bold;
   pointer-events: none;
 }
-
-/* Khu vực controls
-.controls {
-    display: flex;
-  }
-  
-  .controls button {
-    flex: 1; /* Chia đều không gian cho mỗi nút 
-    background: none;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .controls button.active {
-    background: #2196f3;
-    color: #fff;
-  }
-  
-  .controls button:not(:last-child) {
-    border-right: 1px solid #2196f3;
-  }
-  .gauge.heatpump {
-    background: conic-gradient(
-      from 0deg,
-      #ff5722 0%,
-      #ff5722 20%,
-      transparent 20%
-    );
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
-  
-  .gauge.pergola {
-    background: conic-gradient(
-      from 0deg,
-      #9c27b0 0%,
-      #9c27b0 50%,
-      transparent 50%
-    );
-    border-radius: 50%;
-  } */
-  
   /* Control buttons */
   .widget .controls {
     display: flex;
