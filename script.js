@@ -74,7 +74,7 @@ function toggleLight() {
   widget.addEventListener("click", toggleLight);
 }
 function handlePowerOff(type) {
-  if (type === "temp" || type === "both") {`1`
+  if (type === "temp" || type === "both") {
     isTempActive = false;
     const gaugeTemp = document.querySelector(".temp-widget .gauge.temp.neon");
     gaugeTemp.style.setProperty("--value", 0);
