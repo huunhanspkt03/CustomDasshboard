@@ -19,10 +19,8 @@ eraWidget.init({
   onConfiguration: (configuration) => {
     configTemp = configuration.realtime_configs[0];
     configHumi = configuration.realtime_configs[1];
-    lightActions.BedLight = {
-      on: configuration.actions[0],
-      off: configuration.actions[1]
-    };
+    onBedLight = configuration.actions[0];
+    offBedLight = configuration.actions[1];
     onLivingLight = configuration.actions[2];
     offLivingLight = configuration.actions[3];
     onKitchenLight = configuration.actions[4];
@@ -59,22 +57,20 @@ function setupLightControl(room) {
   const status = widget.querySelector(".status");
   let isOn = false;
 
-function toggleLight() {
+  widget.addEventListener("click",() => {
       isOn = !isOn;
-      console.log(`Light ${room}: ${isOn ? "ON" : "OFF"}`);
       if (isOn) {
           icon.classList.add("active");
           status.textContent = "ON";
-          eraWidget.triggerAction(lightActions[room].on.action, null);
+          eraWidget.triggerAction(onBedLight.action, null);
       } else {
           icon.classList.remove("active");
           status.textContent = "OFF";
-          eraWidget.triggerAction(lightActions[room].on.action, null);
+          eraWidget.triggerAction(offBedLight.action, null);
       }
-  }
-
-  widget.addEventListener("click", toggleLight);
-}
+      // console.log(`Light ${room}: ${isOn ? "ON" : "OFF"}`);
+  })
+};
 function handlePowerOff(type) {
   if (type === "temp" || type === "both") {
     isTempActive = false;
