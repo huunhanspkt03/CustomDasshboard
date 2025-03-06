@@ -68,8 +68,33 @@ function setupLightControl(room) {
           status.textContent = "OFF";
           eraWidget.triggerAction(offBedLight.action, null);
       }
-      // console.log(`Light ${room}: ${isOn ? "ON" : "OFF"}`);
   })
+  ///set up Light for LivingLight  
+  widget.addEventListener("click",() => {
+    isOn = !isOn;
+    if (isOn) {
+        icon.classList.add("active");
+        status.textContent = "ON";
+        eraWidget.triggerAction(onLivingLight.action, null);
+    } else {
+        icon.classList.remove("active");
+        status.textContent = "OFF";
+        eraWidget.triggerAction(offLivingLight.action, null);
+    }
+})
+  ///set up Light for KitChenLight  
+  widget.addEventListener("click",() => {
+    isOn = !isOn;
+    if (isOn) {
+        icon.classList.add("active");
+        status.textContent = "ON";
+        eraWidget.triggerAction(onKitchenLight.action, null);
+    } else {
+        icon.classList.remove("active");
+        status.textContent = "OFF";
+        eraWidget.triggerAction(offKitchenLight.action, null);
+    }
+})
 };
 function handlePowerOff(type) {
   if (type === "temp" || type === "both") {
