@@ -45,57 +45,52 @@ eraWidget.init({
       },
   });
 
-setupLightControl("BedLight");
-setupLightControl("KitchenLight");
-setupLightControl("LivingRoomLight");
+// setupLightControl("BedLight");
+// setupLightControl("KitchenLight");
+// setupLightControl("LivingRoomLight");
 function setupLightControl(room) {
   const widget = document.querySelector(`.${room}-widget`);
-  if (!widget){ 
+  if (!widget) { 
       console.error(`Not found widget for: ${room}`);
-      return;} 
+      return; 
+  } 
+
   const icon = widget.querySelector(".light-icon");
   const status = widget.querySelector(".status");
   let isOn = false;
 
-  widget.addEventListener("click",() => {
+  widget.addEventListener("click", () => {
       isOn = !isOn;
       if (isOn) {
           icon.classList.add("active");
           status.textContent = "ON";
-          eraWidget.triggerAction(onBedLight.action, null);
+          // Gọi action tương ứng với từng loại đèn
+          if (room === "bedLight") {
+              eraWidget.triggerAction(onBedLight.action, null);
+          } else if (room === "kitchenLight") {
+              eraWidget.triggerAction(onKitchenLight.action, null);
+          } else if (room === "livingRoomLight") {
+              eraWidget.triggerAction(onLivingLight.action, null);
+          }
       } else {
           icon.classList.remove("active");
           status.textContent = "OFF";
-          eraWidget.triggerAction(offBedLight.action, null);
+          // Gọi action tương ứng với từng loại đèn
+          if (room === "bedLight") {
+              eraWidget.triggerAction(offBedLight.action, null);
+          } else if (room === "kitchenLight") {
+              eraWidget.triggerAction(offKitchenLight.action, null);
+          } else if (room === "livingRoomLight") {
+              eraWidget.triggerAction(offLivingLight.action, null);
+          }
       }
-  })
-  ///set up Light for LivingLight  
-  widget.addEventListener("click",() => {
-    isOn = !isOn;
-    if (isOn) {
-        icon.classList.add("active");
-        status.textContent = "ON";
-        eraWidget.triggerAction(onLivingLight.action, null);
-    } else {
-        icon.classList.remove("active");
-        status.textContent = "OFF";
-        eraWidget.triggerAction(offLivingLight.action, null);
-    }
-})
-  ///set up Light for KitChenLight  
-  widget.addEventListener("click",() => {
-    isOn = !isOn;
-    if (isOn) {
-        icon.classList.add("active");
-        status.textContent = "ON";
-        eraWidget.triggerAction(onKitchenLight.action, null);
-    } else {
-        icon.classList.remove("active");
-        status.textContent = "OFF";
-        eraWidget.triggerAction(offKitchenLight.action, null);
-    }
-})
-};
+  });
+}
+
+// Gọi hàm setup cho từng loại đèn
+setupLightControl("BedLight");
+setupLightControl("KitchenLight");
+setupLightControl("LivingRoomLight");
 function handlePowerOff(type) {
   if (type === "temp" || type === "both") {
     isTempActive = false;
