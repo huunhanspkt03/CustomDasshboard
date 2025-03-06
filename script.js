@@ -1,4 +1,3 @@
-src="https://www.unpkg.com/@eohjsc/era-widget@1.1.3/src/index.js"
 const eraWidget = new EraWidget();
 const temp = document.getElementById("temp-widget");
 const humidifier = document.getElementById("humidifier-widget");
@@ -51,7 +50,7 @@ setupLightControl("livingRoomLight");
 function setupLightControl(room) {
   const widget = document.querySelector(`.${room}-widget`);
   if (!widget){ 
-      console.error(`Not found widget for room: ${room}`);
+      console.error(`Not found widget for: ${room}`);
       return;} 
   const icon = widget.querySelector(".light-icon");
   const status = widget.querySelector(".status");
@@ -74,7 +73,7 @@ function toggleLight() {
   widget.addEventListener("click", toggleLight);
 }
 function handlePowerOff(type) {
-  if (type === "temp" || type === "both") {
+  if (type === "temp" || type === "both") {`1`
     isTempActive = false;
     const gaugeTemp = document.querySelector(".temp-widget .gauge.temp.neon");
     gaugeTemp.style.setProperty("--value", 0);
