@@ -65,22 +65,22 @@ function setupLightControl(room) {
           icon.classList.add("active");
           status.textContent = "ON";
           // Gọi action tương ứng với từng loại đèn
-          if (room === "bedLight") {
+          if (room === "BedLight") {
               eraWidget.triggerAction(onBedLight.action, null);
-          } else if (room === "kitchenLight") {
+          } else if (room === "KitchenLight") {
               eraWidget.triggerAction(onKitchenLight.action, null);
-          } else if (room === "livingRoomLight") {
+          } else if (room === "LivingRoomLight") {
               eraWidget.triggerAction(onLivingLight.action, null);
           }
       } else {
           icon.classList.remove("active");
           status.textContent = "OFF";
           // Gọi action tương ứng với từng loại đèn
-          if (room === "bedLight") {
+          if (room === "BedLight") {
               eraWidget.triggerAction(offBedLight.action, null);
-          } else if (room === "kitchenLight") {
+          } else if (room === "KitchenLight") {
               eraWidget.triggerAction(offKitchenLight.action, null);
-          } else if (room === "livingRoomLight") {
+          } else if (room === "LivingRoomLight") {
               eraWidget.triggerAction(offLivingLight.action, null);
           }
       }
