@@ -151,7 +151,7 @@ document.querySelectorAll(".controls button").forEach(button => {
 function updateTempGauge(newVal) {
   const gauge = document.querySelector(".temp-widget .gauge.temp.neon");
   gauge.style.setProperty("--value", newVal);
-  gauge.querySelector(".value").textContent = newVal + "°C";
+  gauge.querySelector(".value").textContent = newVal.toFixed(1) + "°C";
 }
 
 function updateGauge(newVal) {
@@ -159,7 +159,7 @@ function updateGauge(newVal) {
     ".humidifier-widget .gauge.humidifier.neon"
   );
   gauge.style.setProperty("--value", newVal);
-  gauge.querySelector(".value").textContent = newVal + "%";
+  gauge.querySelector(".value").textContent = newVal.toFixed(1) + "%";
 } 
 
 // Hàm cập nhật thời tiết

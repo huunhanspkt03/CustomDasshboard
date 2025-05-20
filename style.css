@@ -25,8 +25,8 @@ body {
     object-fit: contain;
     display: flex;
     position: absolute;
-    top: 10px; /* Điều chỉnh khoảng cách từ trên xuống */
-    right: 10px; /* Đặt ảnh sát góc phải */
+    top: 50px; /* Điều chỉnh khoảng cách từ trên xuống */
+    left: 10px; /* Đặt ảnh sát góc phải */
 }
 .LivingRoomLight-widget img {
     width: 200px;  /* Giảm kích thước */
@@ -38,16 +38,14 @@ body {
     left: 10px; /* Đặt ảnh sát góc phải */
 }
 .iconWeather img {
-  width: 150px;  /* Giảm kích thước */
+  width: 170px;  /* Giảm kích thước */
   height: auto;
   object-fit: contain;
   display: flex;
   position: absolute;
-  top: 150px; /* Điều chỉnh khoảng cách từ trên xuống */
-  right: 310px; /* Đặt ảnh sát góc phải */
+  top: 170px; /* Điều chỉnh khoảng cách từ trên xuống */
+  right: 400px; /* Đặt ảnh sát góc phải */
 }
-
-
 /* Glass morphism container */
 .container {
     display: flex;
@@ -233,12 +231,12 @@ body {
   }  
 .widget.humidifier-widget,
 .widget.temp-widget {
-  max-height: 250px;
+  max-height: 350px;
 }
 .widget.BedLight-widget,
 /* .widget.apple-style, */
 .widget.LivingRoom-widget {
-  min-height: 250px;
+  min-height: 350px;
 }
 .gauge.temp.neon {
   --size: 150px; /* Đường kính gauge */
@@ -295,9 +293,8 @@ body {
   border-radius: 50%;
   box-shadow: inset 0 0 15px var(--neon-color);
 }
-
 /* Hiển thị giá trị % ở giữa gauge */
-.gauge.temp.neon .value {
+.gauge.temp.neon.value {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -308,15 +305,66 @@ body {
   font-weight: bold;
   pointer-events: none;
 }
+/* Hiển thị giá trị % ở giữa gauge cho độ ẩm */
+.gauge.humi.neon {
+  --size: 150px;
+  --thickness: 15px;
+  --bg-color: #1b1b1b;
+  --fill-color: #00bcd4;
+  --neon-color: #00acc1;
+  --value: 50;
 
-/* Hiển thị giá trị % ở giữa gauge */
-.gauge.temp.neon.value {
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  margin: 20px auto;
+}
+
+.gauge.humi.neon .dial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: var(--bg-color);
+  box-shadow: 0 0 20px var(--bg-color);
+}
+
+.gauge.humi.neon .fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--fill-color) calc(var(--value) * 1%),
+    transparent calc(var(--value) * 1%)
+  );
+  transform: rotate(-90deg);
+  box-shadow: 0 0 15px var(--neon-color);
+}
+
+.gauge.humi.neon::after {
+  content: "";
+  position: absolute;
+  top: var(--thickness);
+  left: var(--thickness);
+  width: calc(var(--size) - (var(--thickness) * 2));
+  height: calc(var(--size) - (var(--thickness) * 2));
+  background: #000;
+  border-radius: 50%;
+  box-shadow: inset 0 0 15px var(--neon-color);
+}
+
+.gauge.humi.neon .value {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: calc(var(--size) / 5);
-  color: #f5fbff;
+  color: #e0f7fa;
   text-shadow: 0 0 5px var(--fill-color);
   font-weight: bold;
   pointer-events: none;
@@ -413,95 +461,33 @@ body {
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
       0 0 10px rgba(255, 255, 255, 0.6), inset 0 0 5px rgba(255, 255, 255, 0.8);
   }
-  .weather-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 12px;
-  }
-  
   .weather-main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Căn giữa theo chiều ngang */
-    justify-content: center; /* Căn giữa theo chiều dọc */
-    text-align: center; /* Căn giữa nội dung văn bản */
-    margin: 15;
-}
-  .weather-title {
-    font-size: 30px;
-    font-weight: 600;
-    margin: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    margin: 0; /* Bỏ margin không cần thiết */
+    gap: 12px; /* Thêm khoảng cách giữa các khối */
   }
   
-  .weather-subtitle {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 20px;
-    margin-top: 15px;
-  }
-  
-  .weather-temp {
-    font-size: 32px;
-    font-weight: 700;
-    margin: 8px 0;
-    background: linear-gradient(120deg, #fff, #ebc379);
-    -webkit-text-fill-color: transparent;
-  }
-  .canvas-container {
-    width: 120px;
-    height: 120px;
-    position: relative;
-    margin: 0 auto;
-    cursor: move;
-    border-radius: 12px;
+  .iconWeather {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .forecast {
-    margin-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 12px;
-    overflow-x: auto;
+    margin-top: 16px;
   }
   
-  .forecast-scroll {
-    display: flex;
-    gap: 16px;
-    padding: 4px 0;
+  .iconWeather img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
   }
   
-  .forecast-day {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 45px;
-    text-align: center;
-  }
   
-  .forecast-day span {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 4px;
-  }
-  
-  .forecast-temps {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-    font-size: 12px;
-  }
-  
-  .high-temp {
-    color: #ff8a00;
-    font-weight: 600;
-  }
-  
-  .low-temp {
-    color: #60a5fa;
-  }
   /* Button enhancements */
   .effect-button {
     display: flex;
@@ -521,51 +507,62 @@ body {
     transform: scale(1.2);
   }
 
+  :fullscreen .main-content,
+  :-webkit-full-screen .main-content,
+  :-moz-full-screen .main-content,
+  :-ms-fullscreen .main-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-auto-rows: minmax(320px, auto);
+      gap: 24px;
+      align-items: stretch;
+      height: 100vh;
+      box-sizing: border-box;
+  }
   
-.fullscreen-button {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease;
-}
-
-.fullscreen-button:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.fullscreen-button i {
-  color: white;
-  font-size: 18px;
-}
-
-/* Adjust button position in fullscreen mode */
-:fullscreen .fullscreen-button {
-  top: 30px;
-  right: 30px;
-}
-
-/* Vendor prefixes for different browsers */
-:-webkit-full-screen .fullscreen-button {
-  top: 30px;
-  right: 30px;
-}
-
-:-moz-full-screen .fullscreen-button {
-  top: 30px;
-  right: 30px;
-}
-
-:-ms-fullscreen .fullscreen-button {
-  top: 30px;
-  right: 30px;
-}
+  :fullscreen .widget,
+  :-webkit-full-screen .widget,
+  :-moz-full-screen .widget,
+  :-ms-fullscreen .widget {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 320px;
+      height: 100%;
+      box-sizing: border-box;
+  }
+  
+  .fullscreen-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .fullscreen-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .fullscreen-button i {
+    color: white;
+    font-size: 18px;
+  }
+  
+  :fullscreen .fullscreen-button,
+  :-webkit-full-screen .fullscreen-button,
+  :-moz-full-screen .fullscreen-button,
+  :-ms-fullscreen .fullscreen-button {
+    top: 30px;
+    right: 30px;
+  }
+  
