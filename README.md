@@ -11,7 +11,7 @@
 
 ## About the Project
 
-    Design and implement a smarthome model that remotely controls lights💡, detects fire🔥 and smoke to automatically turn on the fire extinguishing system💦 , simultaneously sends notification message to user. Using module ESP32 with main core WROOM-32 ([Datasheet](https://www.espressif.com/en/products/socs/esp32)) and Combined with the E-Ra([https://e-ra.io/index.html]) IoT platform.
+Design and implement a smarthome model that remotely controls lights💡, detects fire🔥 and smoke to automatically turn on the fire extinguishing system💦 , simultaneously sends notification message to user. Using module ESP32 with main core WROOM-32 ([Datasheet](https://www.espressif.com/en/products/socs/esp32)) and Combined with the E-Ra([https://e-ra.io/index.html]) IoT platform.
 
 ## Getting Started
 
@@ -19,7 +19,7 @@
 Below is 3D views:
 
 <p align="center">
-  <img src="assets/board.png)" alt="PCB board" width="600" />
+  <img src="assets\board.png)" alt="PCB board" width="600" />
 </p>
 
 ### GUI Interface Design
@@ -49,7 +49,7 @@ The CustomDashboard GUI is built with plain HTML/CSS and vanilla JavaScript, fea
 
 - **OpenWeatherMap API** – Free weather data → [Docs](https://openweathermap.org/api) | [Sign Up](https://home.openweathermap.org/users/sign_up)
 - **Chart.js** – Circular gauges used for temperature and humidity → [Source](https://github.com/chartjs/Chart.js) | [Docs](https://www.chartjs.org/docs/)
--**E-Ra** -Combined with the E-Ra → [Sign Up](https://e-ra.io/index.html) | [Docs](https://app.e-ra.io/instruction-guide)
+- **E-Ra** – Combined with the E-Ra → [Sign Up](https://e-ra.io/index.html) | [Docs](https://app.e-ra.io/instruction-guide)
 ## Contributors
 
 * [**HUU-NHAN**](https://github.com/huunhanspkt03)
