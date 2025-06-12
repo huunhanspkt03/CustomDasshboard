@@ -1,8 +1,0 @@
-Change Component Designator: OldDesignator=D? NewDesignator=D15
-Change Component Designator: OldDesignator=R? NewDesignator=R15
-Change Component Designator: OldDesignator=R? NewDesignator=R16
-Change Component Designator: OldDesignator=R? NewDesignator=R17
-Change Net Name : Old Net Name=NetD?_A New Net Name=NetD15_A
-Change Net Name : Old Net Name=NetR?_1 New Net Name=NetR15_1
-Added Member To Class: ClassName=Sheet1 Member=Component R15 3.3K
-Added Member To Class: ClassName=Sheet1 Member=Component R17 220

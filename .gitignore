@@ -1,9 +1,8 @@
 # Bỏ qua toàn bộ thư mục History bên trong DESIGN_PCB
 DESIGN_PCB/History/
-
 # Bỏ qua folder có khoảng trắng, escape space
-DESIGN_PCB/Project\ Logs\ for\ DOAN1_V2/
-DESIGN_PCB/Project\ Outputs\ for\ DOAN1_V2/
+DESIGN_PCB/Project Logs for DOAN1_V2/
+DESIGN_PCB/Project Outputs for DOAN1_V2/
 
 # Bỏ qua thư mục __Previews__
 DESIGN_PCB/__Previews/
@@ -11,5 +10,3 @@ DESIGN_PCB/__Previews/
 # Bỏ qua file cấu trúc tự sinh
 *.PrjPcbStructure
 
-# Bỏ qua bất kỳ file backup nào chứa “-bak.”
-*-bak.*

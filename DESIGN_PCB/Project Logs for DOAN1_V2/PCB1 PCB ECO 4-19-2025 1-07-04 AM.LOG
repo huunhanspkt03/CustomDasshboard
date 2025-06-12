@@ -1,4 +1,0 @@
-Removed Pin From Net: NetName=IO_23 Pin=P6-2
-Removed Pin From Net: NetName=IO_14 Pin=R13-2
-Added Pin To Net: NetName=IO_14 Pin=P6-2
-Added Pin To Net: NetName=IO_23 Pin=R13-2
