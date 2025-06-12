@@ -10,13 +10,17 @@
 - [License](#license)
 
 ## About the Project
+
     Design and implement a smarthome model that remotely controls lights💡, detects fire🔥 and smoke to automatically turn on the fire extinguishing system💦 , simultaneously sends notification message to user. Using module ESP32 with main core WROOM-32 ([Datasheet](https://www.espressif.com/en/products/socs/esp32)) and Combined with the E-Ra([https://e-ra.io/index.html]) IoT platform.
+
 ## Getting Started
 
 ### Hardware Design
 Below is 3D views:
 
-![PCB board](assets\board.png)
+<p align="center">
+  <img src="assets/board.png)" alt="PCB board" width="600" />
+</p>
 
 ### GUI Interface Design
 
