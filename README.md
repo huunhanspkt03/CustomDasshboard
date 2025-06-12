@@ -18,9 +18,7 @@ Design and implement a smarthome model that remotely controls lights💡, detect
 ### Hardware Design
 Below is 3D views:
 
-<p align="center">
-  <img src="assets\board.png)" alt="PCB board" width="600" />
-</p>
+![BOARD PCB](assets/board.png)
 
 ### GUI Interface Design
 
