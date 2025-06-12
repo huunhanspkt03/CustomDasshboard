@@ -1,0 +1,47 @@
+Added Component: Designator=R1(RES_0805)
+Added Component: Designator=R2(RES_0805)
+Added Component: Designator=R3(RES_0805)
+Added Component: Designator=R4(RES_0805)
+Added Component: Designator=R5(RES_0805)
+Added Component: Designator=R6(RES_0805)
+Added Component: Designator=R7(RES_0805)
+Added Component: Designator=R8(RES_0805)
+Added Component: Designator=R9(RES_0805)
+Added Component: Designator=R10(RES_0805)
+Added Component: Designator=R11(RES_0805)
+Add Pin To Net: Unknown Pin: Pin D2-A
+Add Pin To Net: Unknown Pin: Pin D2-C
+Add Pin To Net: Unknown Pin: Pin R1-1
+Add Pin To Net: Unknown Pin: Pin R1-2
+Add Pin To Net: Unknown Pin: Pin R2-1
+Add Pin To Net: Unknown Pin: Pin R2-2
+Add Pin To Net: Unknown Pin: Pin R3-1
+Add Pin To Net: Unknown Pin: Pin R3-2
+Add Pin To Net: Unknown Pin: Pin R4-1
+Add Pin To Net: Unknown Pin: Pin R4-2
+Add Pin To Net: Unknown Pin: Pin R5-1
+Add Pin To Net: Unknown Pin: Pin R5-2
+Add Pin To Net: Unknown Pin: Pin R6-1
+Add Pin To Net: Unknown Pin: Pin R6-2
+Add Pin To Net: Unknown Pin: Pin R7-1
+Add Pin To Net: Unknown Pin: Pin R7-2
+Add Pin To Net: Unknown Pin: Pin R8-1
+Add Pin To Net: Unknown Pin: Pin R8-2
+Add Pin To Net: Unknown Pin: Pin R9-1
+Add Pin To Net: Unknown Pin: Pin R9-2
+Add Pin To Net: Unknown Pin: Pin R10-1
+Add Pin To Net: Unknown Pin: Pin R10-2
+Add Pin To Net: Unknown Pin: Pin R11-1
+Add Pin To Net: Unknown Pin: Pin R11-2
+Add Class Member: Failed to add class member : Component D2 ?
+Add Class Member: Failed to add class member : Component R1 220
+Add Class Member: Failed to add class member : Component R2 1M
+Add Class Member: Failed to add class member : Component R3 220
+Add Class Member: Failed to add class member : Component R4 220
+Add Class Member: Failed to add class member : Component R5 220
+Add Class Member: Failed to add class member : Component R6 1k
+Add Class Member: Failed to add class member : Component R7 1k
+Add Class Member: Failed to add class member : Component R8 1k
+Add Class Member: Failed to add class member : Component R9 10K
+Add Class Member: Failed to add class member : Component R10 10K
+Add Class Member: Failed to add class member : Component R11 10K

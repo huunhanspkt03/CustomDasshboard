@@ -1,0 +1,35 @@
+Removed Pin From Net: NetName=GND Pin=P2-1
+Removed Pin From Net: NetName=IO_23 Pin=P2-2
+Removed Pin From Net: NetName=+5V Pin=U1-4
+Change Component Comment : Designator=C1 Old Comment=? New Comment=10nF
+Change Component Comment : Designator=L1 Old Comment=? New Comment=47uF
+Change component parameters: Designator = "C1" ("C1"); Footprint = "CAP_0805"; UniqueID = "\KQYQNKQF" ("\KQYQNKQF")
+Change component parameters (AddParameter): Name = "JLCPCB Part"; Value = "?"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LCSC Part"; Value = "?"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mfr. Part"; Value = "?"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "10nF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage"; Value = "?"; VariantName = "[No Variations]"
+Change component parameters: Designator = "L1" ("L1"); Footprint = "IND_0805"; UniqueID = "\HLJMWQEA" ("\HLJMWQEA")
+Change component parameters (AddParameter): Name = "Current Rating"; Value = "?"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "JLCPCB Part"; Value = "?"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LCSC Part"; Value = "?"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mfr. Part"; Value = "?"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "47uF"; VariantName = "[No Variations]"
+Added Component: Designator=R?(RES_0805)
+Add component (AddParameter): Name = "JLCPCB Part"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mfr. Part"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "3.3K"; VariantName = "[No Variations]"
+Added Component: Designator=R?(RES_0805)
+Add component (AddParameter): Name = "JLCPCB Part"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mfr. Part"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=R?-1
+Added Pin To Net: NetName=+5V Pin=R?-2
+Added Pin To Net: NetName=NetR?_1 Pin=R?-1
+Added Pin To Net: NetName=NetR?_1 Pin=R?-2
+Added Pin To Net: NetName=NetR?_1 Pin=U1-4
+Added Net: Name=NetR?_1
+Added Member To Class: ClassName=Sheet1 Member=Component R? 3.3K
+Added Member To Class: ClassName=Sheet1 Member=Component R? 1K

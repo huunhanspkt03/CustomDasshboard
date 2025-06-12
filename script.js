@@ -45,9 +45,6 @@ eraWidget.init({
       },
   });
 
-// setupLightControl("BedLight");
-// setupLightControl("KitchenLight");
-// setupLightControl("LivingRoomLight");
 function setupLightControl(room) {
   const widget = document.querySelector(`.${room}-widget`);
   if (!widget) { 
@@ -64,7 +61,6 @@ function setupLightControl(room) {
       if (isOn) {
           icon.classList.add("active");
           status.textContent = "ON";
-          // Gọi action tương ứng với từng loại đèn
           if (room === "BedLight") {
               eraWidget.triggerAction(onBedLight.action, null);
           } else if (room === "KitchenLight") {
@@ -75,7 +71,7 @@ function setupLightControl(room) {
       } else {
           icon.classList.remove("active");
           status.textContent = "OFF";
-          // Gọi action tương ứng với từng loại đèn
+          // Call action 
           if (room === "BedLight") {
               eraWidget.triggerAction(offBedLight.action, null);
           } else if (room === "KitchenLight") {
@@ -87,7 +83,7 @@ function setupLightControl(room) {
   });
 }
 
-// Gọi hàm setup cho từng loại đèn
+// Call the setup function for each type of light
 setupLightControl("BedLight");
 setupLightControl("KitchenLight");
 setupLightControl("LivingRoomLight");
@@ -128,20 +124,18 @@ function handleActive(type) {
 }
 document.querySelectorAll(".controls button").forEach(button => {
   button.addEventListener("click", function () {
-      // Lấy loại thiết bị (temp/humidifier)
       let type = this.dataset.type; 
-      
-      // Kiểm tra icon <i> để biết đang nhấn Play (fa-play) hay PowerOff (fa-power-off)
+      // check icon <i> to know what button are pressing (fa-play) or PowerOff (fa-power-off)
       let icon = this.querySelector("i");
       let isStartButton = icon.classList.contains("fa-play");
       let isPowerOffButton = icon.classList.contains("fa-power-off");
       
       if (isStartButton) {
-          // Đây là nút bật (Start) cho temp/humidifier
+          // Start temp/humidifier
           handleActive(type);
           console.log(`Nút Play của ${type} được nhấn!`);
       } else if (isPowerOffButton) {
-          // Đây là nút tắt (Power Off) cho temp/humidifier
+          //Power Offemp/humidifier
           handlePowerOff(type);
           console.log(`Nút Power Off của ${type} được nhấn!`);
       }
@@ -162,7 +156,7 @@ function updateGauge(newVal) {
   gauge.querySelector(".value").textContent = newVal.toFixed(1) + "%";
 } 
 
-// Hàm cập nhật thời tiết
+// update the weather
 async function fetchWeather() {
   const apiKey = '3a9dc7bfab0014c931de17434dda777a';
   const city = 'Ho Chi Minh City';
@@ -183,7 +177,7 @@ async function fetchWeather() {
   }
 }
 
-// Gọi hàm fetchWeather khi DOM đã tải xong
+// call fetchWeather when DOM was installed
 window.addEventListener("DOMContentLoaded", fetchWeather);
 //===========Full Screen Feature==========
 // Add fullscreen button HTML to your document first

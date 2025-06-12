@@ -1,0 +1,37 @@
+Removed Pin From Net: NetName=NetC2_2 Pin=C6-1
+Removed Pin From Net: NetName=GND Pin=C6-2
+Removed Pin From Net: NetName=GND Pin=D4-A
+Removed Pin From Net: NetName=+5V Pin=L1-2
+Removed Pin From Net: NetName=+5V Pin=R15-2
+Removed Pin From Net: NetName=GND Pin=R16-1
+Removed Pin From Net: NetName=GND Pin=U1-6
+Removed Pin From Net: NetName=NetC2_2 Pin=U1-7
+Removed Member From Class: ClassName=Sheet1 Member=C1
+Removed Member From Class: ClassName=Sheet1 Member=C6
+Removed Member From Class: ClassName=Sheet1 Member=D4
+Removed Member From Class: ClassName=Sheet1 Member=L1
+Removed Member From Class: ClassName=Sheet1 Member=R15
+Removed Member From Class: ClassName=Sheet1 Member=R16
+Removed Member From Class: ClassName=Sheet1 Member=U1
+Added Component: Designator=U?(PWR_LD1117_SOT223)
+Add component (AddParameter): Name = "JLCPCB Part"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mrf. Part"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "?"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=U?-1
+Added Pin To Net: NetName=+5V Pin=U?-2
+Added Pin To Net: NetName=NetC2_2 Pin=U?-3
+Added Pin To Net: NetName=+5V Pin=U?-4
+Added Pin To Net: NetName=NetK1_5 Pin=K1-5
+Added Pin To Net: NetName=NetK1_5 Pin=P3-2
+Added Net: Name=NetK1_5
+Added Pin To Net: NetName=NetK2_5 Pin=K2-5
+Added Pin To Net: NetName=NetK2_5 Pin=P4-2
+Added Net: Name=NetK2_5
+Added Pin To Net: NetName=NetK3_5 Pin=K3-5
+Added Pin To Net: NetName=NetK3_5 Pin=P5-2
+Added Net: Name=NetK3_5
+Added Pin To Net: NetName=NetK4_5 Pin=K4-5
+Added Pin To Net: NetName=NetK4_5 Pin=P9-2
+Added Net: Name=NetK4_5
+Added Member To Class: ClassName=Sheet1 Member=Component U? ?

@@ -1,0 +1,8 @@
+Added Component: Designator=D2(DIO_SMBJ36CA)
+Add component (AddParameter): Name = "JLCPCB Part"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mrf. Part"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Name"; Value = "?"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC2_2 Pin=D2-1
+Added Pin To Net: NetName=GND Pin=D2-2
+Added Member To Class: ClassName=Sheet1 Member=Component D2 SMBJ36CA
